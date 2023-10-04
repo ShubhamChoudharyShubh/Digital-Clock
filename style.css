@@ -1,27 +1,33 @@
-*{
-   margin: 0;
-   padding: 0;
-   font-family: 'poppins', sans-serif;
-   box-sizing: border-box;
+/* changed css by me for responsiveness */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
 }
-.hero{
+
+.hero {
     width: 100%;
     height: 100vh;
     background: linear-gradient(45deg, #08001f, #30197d);
     color: #fff;
     position: relative;
 }
-.container{
-   width: 800px;
-   height: 180px;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
+
+.container {
+    width: 90%; /* Adjust the width as needed */
+    max-width: 800px; /* Set a maximum width for larger screens */
+    height: auto; /* Allow the height to adjust based on content */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.clock{
+
+.clock {
     width: 100%;
-    height: 100%;
+    height: auto; /* Allow the height to adjust based on content */
     background: rgba(235, 0, 255, 0.11);
     border-radius: 10px;
     display: flex;
@@ -29,49 +35,71 @@
     justify-content: center;
     backdrop-filter: blur(40px);
 }
-.container::before{
+
+.container::before {
     content: '';
-    width: 180px;
-    height: 180px;
+    width: 15%; /* Adjust the width as needed */
+    padding-top: 15%; /* Maintain a square aspect ratio */
     background: #f41b75;
     border-radius: 5px;
     position: absolute;
-    left: -50px;
-    top: -50px;
+    left: -10%; /* Adjust the position as needed */
+    top: -10%; /* Adjust the position as needed */
     z-index: -1;
 }
-.container::after{
+
+.container::after {
     content: '';
-    width: 180px;
-    height: 180px;
+    width: 15%; /* Adjust the width as needed */
+    padding-top: 15%; /* Maintain a square aspect ratio */
     background: #419aff;
     border-radius: 50%;
     position: absolute;
-    right: -30px;
-    bottom: -50px;
+    right: -5%; /* Adjust the position as needed */
+    bottom: -10%; /* Adjust the position as needed */
     z-index: -1;
 }
-.clock span{
-    font-size: 80px;
-    width: 110px;
+
+.clock span {
+    font-size: 10vw; /* Adjust the font size based on the viewport width */
+    width: auto; /* Allow the width to adjust based on content */
     display: inline-block;
     text-align: center;
     position: relative;
 }
 
-.clock span::after{
-        font-size: 16px;
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        transform: translate(-50%);
+.clock span::after {
+    font-size: 4vw; /* Adjust the font size based on the viewport width */
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%);
 }
-#hrs::after{
+
+#hrs::after {
     content: 'Hours';
 }
-#min::after{
+
+#min::after {
     content: 'Minutes';
 }
-#sec::after{
-    content: 'Secounds';
+
+#sec::after {
+    content: 'Seconds';
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: none;
+    }
+
+    .clock span {
+        font-size: 12vw;
+    }
+
+    .clock span::after {
+        font-size: 6vw;
+    }
 }
