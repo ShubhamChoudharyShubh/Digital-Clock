@@ -36,20 +36,33 @@ body {
     align-items: center;
 }
 
-/* Styling for individual numbers */
+.clock {
+    width: 100%; /* Full width to allow space for all numbers */
+    height: auto; /* Dynamic height based on content */
+    background: rgba(255, 255, 255, 0.1); /* Slightly translucent background */
+    border-radius: 10px; /* Smooth corners */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Vertically centers numbers */
+    justify-content: flex-start; /* Aligns numbers to the left */
+    flex-wrap: nowrap; /* Prevents wrapping to the next row */
+    overflow-x: auto; /* Adds horizontal scroll if content overflows */
+    border: 1px solid black; /* Black border */
+    backdrop-filter: blur(40px); /* Background blur effect */
+}
 .clock span {
-    font-size: 40px; /* Adjust font size */
-    width: 100px; /* Equal spacing for numbers */
-    height: 100px; /* Square shape for numbers */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 40px; /* Size of the numbers */
+    width: 100px; /* Fixed width for each number */
+    height: 100px; /* Fixed height for each number */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
     margin: 5px; /* Spacing between numbers */
     background-color: white; /* White background for numbers */
-    border: 1px solid black; /* Black border around numbers */
-    border-radius: 10px; /* Rounded corners */
-    color: black; /* Black text */
+    border: 1px solid black; /* Black border for numbers */
+    border-radius: 10px; /* Smooth corners for numbers */
+    color: black; /* Text color */
 }
+
 
 /* Adjustments for mobile screens */
 @media screen and (max-width: 768px) {
