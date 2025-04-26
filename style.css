@@ -5,114 +5,64 @@
     box-sizing: border-box;
 }
 body {
-    background-color: black;
+    background-color: black; /* Black background */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
 }
 .hero {
-    width: 90%; /* Adjust width for smaller screens */
-    height: 70vh; /* Reduce height for smaller screens */
-    background: yellow;
-    color: black;
+    width: 90%; /* Adjust for smaller screens */
+    height: 90vh; /* Height for larger screens */
+    background: yellow; /* Yellow background */
+    color: black; /* Black text */
     position: relative;
-    border: 1px solid black;
-    border-radius: 10px;
+    border: 1px solid black; /* Black border */
+    border-radius: 10px; /* Smooth corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 .container {
-    width: 90%; /* Adjust width for mobile screens */
-    height: auto; /* Allow container height to adjust */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    border-radius: 10px;
+    width: 400px; /* Square shape for PC */
+    height: 400px; /* Square shape for PC */
+    border: 1px solid black; /* Black border */
+    border-radius: 10px; /* Smooth corners */
     background-color: yellow;
-}
-.clock {
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap; /* Wrap numbers for square layout */
     justify-content: center;
-    border: 1px solid black;
-    backdrop-filter: blur(40px);
-    flex-wrap: wrap; /* Ensures spans wrap nicely on smaller screens */
-}
-.container::before {
-    content: '';
-    width: 120px; /* Reduced width */
-    height: 120px; /* Reduced height */
-    background: yellow;
-    border-radius: 5px;
-    position: absolute;
-    left: -30px;
-    top: -30px;
-    z-index: -1;
-    border: 1px solid black;
-}
-.container::after {
-    content: '';
-    width: 120px; /* Reduced width */
-    height: 120px; /* Reduced height */
-    background: yellow;
-    border-radius: 50%;
-    position: absolute;
-    right: -20px;
-    bottom: -30px;
-    z-index: -1;
-    border: 1px solid black;
-}
-.clock span {
-    font-size: 50px; /* Reduced font size for mobile */
-    width: 90px; /* Adjust width for smaller screens */
-    display: inline-block;
-    text-align: center;
-    position: relative;
-    color: black;
-    margin: 5px; /* Add spacing between spans */
-}
-.clock span::after {
-    font-size: 12px; /* Smaller label font size */
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translate(-50%);
-    color: black;
-}
-#hrs::after {
-    content: 'Hours';
-}
-#min::after {
-    content: 'Minutes';
-}
-#sec::after {
-    content: 'Seconds';
+    align-items: center;
 }
 
-/* Responsive Design - Media Query for Screens Smaller than 768px */
+/* Styling for individual numbers */
+.clock span {
+    font-size: 40px; /* Adjust font size */
+    width: 100px; /* Equal spacing for numbers */
+    height: 100px; /* Square shape for numbers */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px; /* Spacing between numbers */
+    background-color: white; /* White background for numbers */
+    border: 1px solid black; /* Black border around numbers */
+    border-radius: 10px; /* Rounded corners */
+    color: black; /* Black text */
+}
+
+/* Adjustments for mobile screens */
 @media screen and (max-width: 768px) {
-    .hero {
-        width: 95%; /* Max width for small screens */
-        height: auto; /* Allow height to adjust */
-    }
     .container {
-        width: 95%; /* Adjust width for smaller devices */
-        height: auto; /* Allow dynamic height */
-    }
-    .clock {
-        flex-direction: column; /* Stack spans vertically on small screens */
+        width: 100%; /* Take full width on mobile */
+        height: auto; /* Adjust height dynamically */
+        flex-wrap: nowrap; /* Force numbers into a single row */
+        overflow-x: auto; /* Enable horizontal scroll for smaller devices */
     }
     .clock span {
-        font-size: 40px; /* Smaller font size for spans */
-        width: auto; /* Auto width for better alignment */
-    }
-    .container::before,
-    .container::after {
-        display: none; /* Hide extra elements on small screens */
+        font-size: 30px; /* Slightly smaller text on mobile */
+        width: 80px; /* Adjust number size for mobile */
+        height: 80px; /* Keep square shape */
+        margin: 5px; /* Maintain spacing between numbers */
     }
 }
