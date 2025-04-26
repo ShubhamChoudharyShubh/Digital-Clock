@@ -1,86 +1,88 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 body {
-    background-color: black; /* Black background */
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
 }
 .hero {
-    width: 50%;
-    height: 80vh;
-    background: yellow; /* Yellow background for hero section */
-    color: black; /* Black text color */
+    width: 90%; /* Adjust width for smaller screens */
+    height: 70vh; /* Reduce height for smaller screens */
+    background: yellow;
+    color: black;
     position: relative;
-    border: 1px solid black; /* Black border */
-    border-radius: 10px; /* Smooth corners */
+    border: 1px solid black;
+    border-radius: 10px;
 }
 .container {
-    width: 800px;
-    height: 180px;
+    width: 90%; /* Adjust width for mobile screens */
+    height: auto; /* Allow container height to adjust */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid black; /* Black border */
-    border-radius: 10px; /* Smooth corners */
-    background-color: yellow; /* Yellow background */
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: yellow;
 }
 .clock {
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1); /* Slightly translucent white background */
-    border-radius: 10px; /* Smooth corners */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black; /* Black border */
+    border: 1px solid black;
     backdrop-filter: blur(40px);
+    flex-wrap: wrap; /* Ensures spans wrap nicely on smaller screens */
 }
 .container::before {
     content: '';
-    width: 180px;
-    height: 180px;
-    background: yellow; /* Matches the overall theme */
+    width: 120px; /* Reduced width */
+    height: 120px; /* Reduced height */
+    background: yellow;
     border-radius: 5px;
     position: absolute;
-    left: -50px;
-    top: -50px;
+    left: -30px;
+    top: -30px;
     z-index: -1;
-    border: 1px solid black; /* Black border */
+    border: 1px solid black;
 }
 .container::after {
     content: '';
-    width: 180px;
-    height: 180px;
-    background: yellow; /* Matches theme for consistency */
-    border-radius: 50%; /* Rounded element */
+    width: 120px; /* Reduced width */
+    height: 120px; /* Reduced height */
+    background: yellow;
+    border-radius: 50%;
     position: absolute;
-    right: -30px;
-    bottom: -50px;
+    right: -20px;
+    bottom: -30px;
     z-index: -1;
-    border: 1px solid black; /* Black border */
+    border: 1px solid black;
 }
 .clock span {
-    font-size: 80px;
-    width: 110px;
+    font-size: 50px; /* Reduced font size for mobile */
+    width: 90px; /* Adjust width for smaller screens */
     display: inline-block;
     text-align: center;
     position: relative;
-    color: black; /* Black text */
+    color: black;
+    margin: 5px; /* Add spacing between spans */
 }
 .clock span::after {
-    font-size: 16px;
+    font-size: 12px; /* Smaller label font size */
     position: absolute;
     bottom: -5px;
     left: 50%;
     transform: translate(-50%);
-    color: black; /* Black text for labels */
+    color: black;
 }
 #hrs::after {
     content: 'Hours';
@@ -89,5 +91,28 @@ body {
     content: 'Minutes';
 }
 #sec::after {
-    content: 'Seconds'; /* Fixed typo from 'Secounds' to 'Seconds' */
+    content: 'Seconds';
+}
+
+/* Responsive Design - Media Query for Screens Smaller than 768px */
+@media screen and (max-width: 768px) {
+    .hero {
+        width: 95%; /* Max width for small screens */
+        height: auto; /* Allow height to adjust */
+    }
+    .container {
+        width: 95%; /* Adjust width for smaller devices */
+        height: auto; /* Allow dynamic height */
+    }
+    .clock {
+        flex-direction: column; /* Stack spans vertically on small screens */
+    }
+    .clock span {
+        font-size: 40px; /* Smaller font size for spans */
+        width: auto; /* Auto width for better alignment */
+    }
+    .container::before,
+    .container::after {
+        display: none; /* Hide extra elements on small screens */
+    }
 }
