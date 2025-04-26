@@ -18,7 +18,7 @@ Feel free to customize the styles and design as per your project's requirements.
 
 ## Preview 🕒
 
-![image](https://github.com/ShubhamChoudharyShubh/Digital-Clock/assets/96586771/10f7891c-e267-462f-afcb-52b023882608)
+![image](https://github.com/user-attachments/assets/272951ad-375c-4d57-ba26-6362ca75d30b)
 
 ## Contributing 🤝
 
